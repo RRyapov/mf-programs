@@ -1,10 +1,11 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { FC } from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, BrowserRouter } from "react-router-dom";
 import { Container, Footer, MainBackground } from "./shared/Container";
 import { Reset } from "styled-reset";
 
 import ProgramsPage from "@pages/ProgramPage";
+import DetailedProgramPage from "@pages/DetailedProgramPage";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -17,19 +18,25 @@ const queryClient = new QueryClient({
 const ProgramsMF: FC = () => {
 	return (
 		<QueryClientProvider client={queryClient}>
-			<MainBackground>
-				<Container>
-					<Reset />
-					{/* <Routes>
-						<Route
-							path="/programs"
-							element={<ProgramsPage />}
-						/>
-					</Routes> */}
-					<Outlet />
-				</Container>
-				<Footer />
-			</MainBackground>
+			<BrowserRouter>
+				<MainBackground>
+					<Container>
+						<Reset />
+						<Routes>
+							<Route
+								path="/programs"
+								element={<ProgramsPage />}
+							/>
+							<Route
+								path="/programs:id"
+								element={<DetailedProgramPage />}
+							/>
+						</Routes>
+						<Outlet />
+					</Container>
+					<Footer />
+				</MainBackground>
+			</BrowserRouter>
 		</QueryClientProvider>
 	);
 };

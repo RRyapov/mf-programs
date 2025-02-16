@@ -14,6 +14,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
 return {
   mode: mode ?? 'development',
   entry: paths.entry,
+
   output: {
     filename: '[name].[contenthash].js',
     path: paths.output,

@@ -1,5 +1,5 @@
 {
-	"name": "reactGymWebpack",
+	"name": "remotePrograms",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.ts",
@@ -16,7 +16,6 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		
 		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
 		"@types/node": "^22.7.7",
 		"@types/webpack": "^5.28.5",

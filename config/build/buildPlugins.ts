@@ -13,12 +13,14 @@ export function buildPlugins({mode, paths, analyzer, platform}: BuildOptions): C
   const isDev = mode === 'development';
   const isProd = mode === 'production';
   const { ModuleFederationPlugin } = require('webpack').container;
+  const deps = require('../../package.json').dependencies;
+
 
   const plugins: Configuration['plugins'] = [  new ModuleFederationPlugin({
     name: 'remotePrograms',
-    filename: 'Programs_MF.tsx',
+    filename: 'programs.js',
     exposes: { './ProgramsMF': './src/ProgramsMF.tsx' },
-    shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+    shared: { react: { singleton: true, requiredVersion: deps.react }, 'react-dom': { singleton: true, requiredVersion: deps['react-dom']}},
   }), 
   new HtmlWebpackPlugin({template: paths.html, favicon: path.resolve(paths.assets, "yellow-strong-man.png" )}), new DefinePlugin({__PLATFORM__: JSON.stringify(platform)}), new ForkTsCheckerWebpackPlugin(), new ReactRefreshWebpackPlugin()];
 

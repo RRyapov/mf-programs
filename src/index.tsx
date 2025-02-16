@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import ProgramsMF from "./ProgramsMF";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { LazyDetailedProgramPage } from "./pages";
+import { LazyDetailedProgramPage, LazyProgramsPage } from "./pages";
 import { Suspense } from "react";
 
 const root = document.getElementById("root");
@@ -22,6 +22,14 @@ const router = createBrowserRouter([
 				element: (
 					<Suspense fallback={"Загрузка..."}>
 						<LazyDetailedProgramPage />
+					</Suspense>
+				),
+			},
+			{
+				path: "/programs",
+				element: (
+					<Suspense fallback={"Загрузка..."}>
+						<LazyProgramsPage />
 					</Suspense>
 				),
 			},
