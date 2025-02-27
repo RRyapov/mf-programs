@@ -2,12 +2,9 @@ import { type FC } from "react";
 
 import { ProgramImage } from "@assets/styles";
 
-import { ITrainingProgram } from "../model/types/types";
+import { ProgramType } from "../types/ProgramType";
 
-export const BuyItemImage: FC<Partial<ITrainingProgram>> = ({
-	id,
-	imageUrl,
-}) => (
+export const BuyItemImage: FC<Partial<ProgramType>> = ({ id, imageUrl }) => (
 	<ProgramImage>
 		<img
 			src={imageUrl}

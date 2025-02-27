@@ -1,13 +1,13 @@
 import { type FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { BuyItemDescription } from "@assets/styles";
 import { MainTitle } from "@shared/ui/Typographies";
-import { BuyItemDescriptionShortRead } from "@shared/ui/Typographies/Typographies";
-import { ITrainingProgram } from "../model/types/types";
+import { ShortRead } from "@shared/ui/Typographies/Typographies";
 import { Button } from "@shared/ui/Button";
+import { ProgramType } from "../types/ProgramType";
 
-export const BuyItemGeneralDescription: FC<Partial<ITrainingProgram>> = ({
+export const BuyItemGeneralDescription: FC<Partial<ProgramType>> = ({
 	id,
 	name,
 	shortText,
@@ -15,8 +15,8 @@ export const BuyItemGeneralDescription: FC<Partial<ITrainingProgram>> = ({
 	const navigate = useNavigate();
 	return (
 		<BuyItemDescription>
-			<MainTitle content={name} />
-			<BuyItemDescriptionShortRead content={shortText} />
+			<MainTitle title={name} />
+			<ShortRead content={shortText} />
 			<Button
 				onClick={() => navigate(`/programs/${id}`)}
 				title="Подробнее"

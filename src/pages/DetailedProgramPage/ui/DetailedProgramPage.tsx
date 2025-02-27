@@ -41,7 +41,7 @@ export const DetailedProgramPage: FC = () => {
 						key={item.id}
 						itemType={itemType}
 						title={name}
-						longText={longText}
+						longRead={longText}
 						price={`${price} руб.`}
 						imageUrl={imageUrl}
 						activeModal={activeModal}

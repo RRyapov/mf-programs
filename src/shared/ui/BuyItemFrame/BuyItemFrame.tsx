@@ -1,10 +1,8 @@
-import { type FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
-// import { AddedToCartModal } from "@features/modalWindows/addedToCartModalWindow/ui/AddedToCartModal";
+import { useState, type FC } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { BuyItemImage } from "@entities/trainingProgram/ui/BuyItemImage";
-import { useChangeModalWindow } from "@shared/model/modalChangerStore/modalChangerStore";
 import { BuyItemProps } from "@shared/types/types";
-// import { BuyItemButtonContainer } from "../buttons/buttonsContainers";
 import {
 	BuyItemBlock,
 	BuyItemTitleBlock,
@@ -20,19 +18,13 @@ import {
 } from "../Typographies";
 import { PriceText } from "../Typographies";
 import { Button } from "../Button";
-// import { PriceText } from "../Typographies/Typographies";
+import { SuccessModal } from "../Modals/SuccessModal";
+import { LongRead } from "../Typographies/Typographies";
 
 export const BuyItemFrame: FC<BuyItemProps> = (props) => {
-	const { openModalState, setOpenModalState } = useChangeModalWindow();
-	const {
-		title,
-		longText,
-		price,
-		imageUrl,
-		itemType,
-		activeModal,
-		setActiveModal,
-	} = props;
+	const [isSuccessModalOpened, setIsSuccessModalOpened] = useState(false);
+
+	const { title, longRead, price, imageUrl, itemType } = props;
 
 	const navigate = useNavigate();
 
@@ -40,42 +32,39 @@ export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 		navigate(-1);
 	};
 	return (
-		<GeneralBuyItemBlock>
-			<BuyItemBlock>
-				<BuyItemTitleBlock>
-					<MainTitle content={title} />
-				</BuyItemTitleBlock>
-				<BuyItemDescriptionBlock>
-					<BuyItemDescription>
-						<BuyItemDescriptionLongRead content={longText} />
-						<PriceText content={price} />
-						<BuyItemButtonContainer>
-							<Button
-								title="Купить"
-								onClick={() => {
-									setOpenModalState(true);
-									setTimeout(() => setOpenModalState(false), 4000);
-								}}
-							/>
-							<Button
-								onClick={goBack}
-								title="Назад"
-							/>
-						</BuyItemButtonContainer>
-					</BuyItemDescription>
-					<BuyItemImage imageUrl={imageUrl} />
-				</BuyItemDescriptionBlock>
-			</BuyItemBlock>
-			{/* {openModalState ? (
-				<AddedToCartModal
-					activeModal={activeModal}
-					setActiveModal={setActiveModal}
-				>
-					<ArticleTitle children={`${itemType} ${title} добавлен(а) в корзину`} />
-				</AddedToCartModal>
-			) : (
-				<></>
-			)} */}
-		</GeneralBuyItemBlock>
+		<>
+			<GeneralBuyItemBlock>
+				<BuyItemBlock>
+					<BuyItemTitleBlock>
+						<MainTitle title={title} />
+					</BuyItemTitleBlock>
+					<BuyItemDescriptionBlock>
+						<BuyItemDescription>
+							<LongRead content={longRead} />
+							<PriceText content={price} />
+							<BuyItemButtonContainer>
+								<Button
+									title="Купить"
+									onClick={() => {
+										setIsSuccessModalOpened(true);
+										// setTimeout(() => setIsSuccessModalOpened(false), 4000);
+									}}
+								/>
+								<Button
+									onClick={goBack}
+									title="Назад"
+								/>
+							</BuyItemButtonContainer>
+						</BuyItemDescription>
+						<BuyItemImage imageUrl={imageUrl} />
+					</BuyItemDescriptionBlock>
+				</BuyItemBlock>
+			</GeneralBuyItemBlock>
+			<SuccessModal
+				isOpen={isSuccessModalOpened}
+				onClose={() => setIsSuccessModalOpened(false)}
+				title={`${itemType} ${title} добавлен(а) в корзину`}
+			/>
+		</>
 	);
 };

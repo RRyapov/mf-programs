@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 import ProgramsMF from "./ProgramsMF";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { LazyDetailedProgramPage, LazyProgramsPage } from "./pages";
 import { Suspense } from "react";
 
@@ -12,29 +12,4 @@ if (!root) {
 
 const container = createRoot(root);
 
-const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <ProgramsMF />,
-		children: [
-			{
-				path: "/programs/:id",
-				element: (
-					<Suspense fallback={"Загрузка..."}>
-						<LazyDetailedProgramPage />
-					</Suspense>
-				),
-			},
-			{
-				path: "/programs",
-				element: (
-					<Suspense fallback={"Загрузка..."}>
-						<LazyProgramsPage />
-					</Suspense>
-				),
-			},
-		],
-	},
-]);
-
-container.render(<RouterProvider router={router} />);
+container.render(<ProgramsMF />);

@@ -10,58 +10,72 @@ import {
 	BuyItemLongRead,
 	StyledArticleTitle,
 } from "@assets/styles";
-import { SxProps, Theme } from "@mui/material";
 import { FC } from "react";
 
 type TitleProps = {
-	content: string;
-	sx?: SxProps<Theme> | undefined;
+	title: string;
 };
 
-export const MainTitle: FC<TitleProps> = ({ content }) => (
+type TextProps = {
+	content: string;
+};
+
+export const MainTitle: FC<TitleProps> = ({ title }) => (
 	<TitleContainer>
-		<StyledMainTitle>{content}</StyledMainTitle>
+		<StyledMainTitle>{title}</StyledMainTitle>
 	</TitleContainer>
 );
 
-export const MediumTitle: FC<TitleProps> = ({ content }) => (
+export const MediumTitle: FC<TitleProps> = ({ title }) => (
 	<TitleContainer>
-		<StyledMediumTitle>{content}</StyledMediumTitle>
+		<StyledMediumTitle>{title}</StyledMediumTitle>
 	</TitleContainer>
 );
 
-export const ArticleText: FC<TitleProps> = ({ content }) => (
+export const ArticleTitle: FC<TitleProps> = ({ title }) => (
+	<TitleContainer>
+		<StyledArticleTitle>{title}</StyledArticleTitle>
+	</TitleContainer>
+);
+
+export const ArticleText: FC<TextProps> = ({ content }) => (
 	<TitleContainer>
 		<StyledArticleText>{content}</StyledArticleText>
 	</TitleContainer>
 );
 
-export const LastWordText: FC<TitleProps> = ({ content }) => (
+export const LastWordText: FC<TextProps> = ({ content }) => (
 	<LastWordContainer>
 		<StyledArticleText>{content}</StyledArticleText>
 	</LastWordContainer>
 );
 
-export const ArticleTitle: FC<TitleProps> = ({ content }) => (
-	<TitleContainer>
-		<StyledArticleTitle>{content}</StyledArticleTitle>
-	</TitleContainer>
-);
-
-export const PriceText: FC<TitleProps> = ({ content }) => (
+export const PriceText: FC<TextProps> = ({ content }) => (
 	<PriceTextContainer>
 		<StyledArticleTitle>{content}</StyledArticleTitle>
 	</PriceTextContainer>
 );
 
-export const BuyItemDescriptionShortRead: FC<TitleProps> = ({ content }) => (
+export const BuyItemDescriptionShortRead: FC<TextProps> = ({ content }) => (
 	<ProgramShortReadContainer>
 		<StyledArticleText>{content}</StyledArticleText>
 	</ProgramShortReadContainer>
 );
 
-export const BuyItemDescriptionLongRead: FC<TitleProps> = ({ content }) => (
+export const BuyItemDescriptionLongRead: FC<TextProps> = ({ content }) => (
 	<ProgramLongReadContainer>
 		<BuyItemLongRead>{content}</BuyItemLongRead>
 	</ProgramLongReadContainer>
+);
+
+export const LongRead: FC<{ content: string }> = ({ content }) => (
+	<ProgramLongReadContainer>
+		<BuyItemLongRead>{content}</BuyItemLongRead>
+	</ProgramLongReadContainer>
+);
+
+export const ShortRead: FC<TextProps> = ({ content }) => (
+	<ProgramShortReadContainer>
+		<StyledArticleText>{content}</StyledArticleText>
+	</ProgramShortReadContainer>
 );

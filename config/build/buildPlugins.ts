@@ -19,7 +19,7 @@ export function buildPlugins({mode, paths, analyzer, platform}: BuildOptions): C
   const plugins: Configuration['plugins'] = [  new ModuleFederationPlugin({
     name: 'remotePrograms',
     filename: 'programs.js',
-    exposes: { './ProgramsMF': './src/ProgramsMF.tsx' },
+    exposes: [{ './ProgramsMF': './src/ProgramsMF.tsx', './DetailedProgramPage': '@pages/DetailedProgramPage/ui/LazyDetailedProgramPage' }],
     shared: { react: { singleton: true, requiredVersion: deps.react }, 'react-dom': { singleton: true, requiredVersion: deps['react-dom']}},
   }), 
   new HtmlWebpackPlugin({template: paths.html, favicon: path.resolve(paths.assets, "yellow-strong-man.png" )}), new DefinePlugin({__PLATFORM__: JSON.stringify(platform)}), new ForkTsCheckerWebpackPlugin(), new ReactRefreshWebpackPlugin()];

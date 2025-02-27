@@ -167,7 +167,6 @@ export const BuyItemTitleBlock = styled(Box)({
 	width: "fit-content",
 	paddingLeft: "25px",
 	paddingRight: "25px",
-	// paddingTop: "15px",
 
 	margin: "25px 0px",
 });
@@ -199,7 +198,8 @@ export const ModalContent = styled(Box)({
 	...FlexCenter,
 	flexDirection: "column",
 	borderRadius: "25px",
-	width: "400px",
+	width: "520px",
+	height: "450px",
 	background:
 		"radial-gradient(circle,rgba(30, 134, 166, 1) 2%,rgba(152, 238, 255, 1) 54%,rgba(30, 134, 166, 1) 100%)",
 	border: "3px solid #2fb3ff",
@@ -250,43 +250,43 @@ export const StyledGeneralButton = styled(Button)({
 	},
 });
 
-// =================== стили Header =========================
+// // =================== стили Header =========================
 
-export const HeaderBackground = styled(Box)({
-	height: "274px",
-	width: "1336px",
+// export const HeaderBackground = styled(Box)({
+// 	height: "274px",
+// 	width: "1336px",
 
-	backgroundRepeat: "no-repeat",
-	backgroundSize: "1336px",
-	backgroundImage:
-		' url("https://i.postimg.cc/sf9tbKcL/header-background.png")',
-	position: "relative",
-	display: "flex",
-	flexDirection: "column",
-	justifyContent: "space-between",
-});
+// 	backgroundRepeat: "no-repeat",
+// 	backgroundSize: "1336px",
+// 	backgroundImage:
+// 		' url("https://i.postimg.cc/sf9tbKcL/header-background.png")',
+// 	position: "relative",
+// 	display: "flex",
+// 	flexDirection: "column",
+// 	justifyContent: "space-between",
+// });
 
-export const HeaderGraffity = styled(Box)({
-	position: "absolute",
-	top: "-60px",
-	left: "-25px",
-	cursor: "pointer",
+// export const HeaderGraffity = styled(Box)({
+// 	position: "absolute",
+// 	top: "-60px",
+// 	left: "-25px",
+// 	cursor: "pointer",
 
-	"&:active": {
-		transform: "scale(0.98)",
-	},
-});
+// 	"&:active": {
+// 		transform: "scale(0.98)",
+// 	},
+// });
 
-export const HeaderStrongMan = styled(Box)({
-	height: "230px",
-	position: "absolute",
-	left: "50%",
-	transform: "translateX(-50%)",
+// export const HeaderStrongMan = styled(Box)({
+// 	height: "230px",
+// 	position: "absolute",
+// 	left: "50%",
+// 	transform: "translateX(-50%)",
 
-	"&:active": {
-		transform: "translateX(-50%) scale(0.98)",
-	},
-});
+// 	"&:active": {
+// 		transform: "translateX(-50%) scale(0.98)",
+// 	},
+// });
 
 // =================== стили Cart =========================
 

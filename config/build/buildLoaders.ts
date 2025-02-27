@@ -40,11 +40,9 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
   }
 }
 
-// const babelLoader = buildBabelLoader(isDev);
 
   return [
     assetLoader, scssLoader, 
-    // babelLoader,
     esbuildLoader,
     fontLoader, svgLoader
   ]

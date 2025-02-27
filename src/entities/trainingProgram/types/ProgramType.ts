@@ -10,10 +10,5 @@ export type ProgramType = {
   level: string;
   result: number;
   onLearnMore: () => void
+  navigate: (path: string) => void;
 };
-
-export type ProgramTypes = ProgramType[];
-
-export enum filtersEnum {
-  GENDER = "gender",
-}

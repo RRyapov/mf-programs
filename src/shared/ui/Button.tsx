@@ -1,11 +1,12 @@
 import { StyledGeneralButton } from "@assets/styles";
-import { FC } from "react";
+
+import { FC, ReactNode } from "react";
 
 type ButtonProps = {
-	title: string;
 	onClick?: () => void;
+	title: string;
 };
 
-export const Button: FC<ButtonProps> = ({ title, onClick }) => (
+export const Button: FC<ButtonProps> = ({ onClick, title }) => (
 	<StyledGeneralButton onClick={onClick}>{title}</StyledGeneralButton>
 );

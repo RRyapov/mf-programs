@@ -2,7 +2,7 @@
 
 export type BuyItemProps = {
   title: string;
-  longText: string;
+  longRead: string;
   price: string;
   imageUrl: string;
 itemType: string;
@@ -21,10 +21,4 @@ export enum BuyItemLinks {
   programs = 'programs',
   products = 'products',
   machines = 'machines',
-}
-
-/* Типы состояния модального окна */
-export type ModalChangeTypes = {
-  openModalState: boolean;
-  setOpenModalState: (changingState: boolean) => void
 }
