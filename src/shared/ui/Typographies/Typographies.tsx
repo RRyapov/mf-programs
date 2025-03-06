@@ -9,6 +9,7 @@ import {
 	ProgramLongReadContainer,
 	BuyItemLongRead,
 	StyledArticleTitle,
+	SuccessModalTitleContainer,
 } from "@assets/styles";
 import { FC } from "react";
 
@@ -37,6 +38,14 @@ export const ArticleTitle: FC<TitleProps> = ({ title }) => (
 		<StyledArticleTitle>{title}</StyledArticleTitle>
 	</TitleContainer>
 );
+
+export const SuccessModalTitle: FC<TitleProps> = ({ title }) => (
+	<SuccessModalTitleContainer>
+		<StyledArticleTitle>{title}</StyledArticleTitle>
+	</SuccessModalTitleContainer>
+);
+
+
 
 export const ArticleText: FC<TextProps> = ({ content }) => (
 	<TitleContainer>

@@ -8,6 +8,9 @@ import {
 } from "@assets/styles";
 
 import { Button } from "../Button";
+import { Dialog } from "@mui/material";
+import { ArticleText, MediumTitle } from "../Typographies";
+import { SuccessModalTitle } from "../Typographies/Typographies";
 
 interface SuccessModalTypes {
 	isOpen: boolean;
@@ -21,15 +24,18 @@ export const SuccessModal: FC<SuccessModalTypes> = ({
 	title,
 }) =>
 	isOpen && (
-		<ModalContainer>
+
+		<Dialog sx={{
+			"& .MuiDialog-paper.MuiPaper-root": {
+				borderRadius: "25px !important"
+			}
+		}} open={isOpen} onClose={onClose}>
 			<ModalContent>
-				<TitleContainer>
-					<StyledArticleTitle>{title}</StyledArticleTitle>
-				</TitleContainer>
-				<Button
+				<SuccessModalTitle title={title} />
+				<Button sx={{ mb: "25px" }}
 					onClick={onClose}
 					title="Закрыть"
 				/>
 			</ModalContent>
-		</ModalContainer>
+		</Dialog>
 	);
