@@ -12,9 +12,7 @@ import {
 	BuyItemButtonContainer,
 } from "@assets/styles";
 import {
-	ArticleTitle,
 	MainTitle,
-	BuyItemDescriptionLongRead,
 } from "../Typographies";
 import { PriceText } from "../Typographies";
 import { Button } from "../Button";
@@ -47,7 +45,6 @@ export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 									title="Купить"
 									onClick={() => {
 										setIsSuccessModalOpened(true);
-										// setTimeout(() => setIsSuccessModalOpened(false), 4000);
 									}}
 								/>
 								<Button
@@ -63,7 +60,7 @@ export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 			<SuccessModal
 				isOpen={isSuccessModalOpened}
 				onClose={() => setIsSuccessModalOpened(false)}
-				title={`${itemType} ${title} добавлен(а) в корзину`}
+				title={`${itemType} ${title} добавлена в корзину`}
 			/>
 		</>
 	);

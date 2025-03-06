@@ -197,7 +197,6 @@ export const ModalContainer = styled(Box)({
 export const ModalContent = styled(Box)({
 	...FlexCenter,
 	flexDirection: "column",
-	borderRadius: "25px",
 	width: "520px",
 	height: "450px",
 	background:
@@ -249,44 +248,6 @@ export const StyledGeneralButton = styled(Button)({
 		},
 	},
 });
-
-// // =================== стили Header =========================
-
-// export const HeaderBackground = styled(Box)({
-// 	height: "274px",
-// 	width: "1336px",
-
-// 	backgroundRepeat: "no-repeat",
-// 	backgroundSize: "1336px",
-// 	backgroundImage:
-// 		' url("https://i.postimg.cc/sf9tbKcL/header-background.png")',
-// 	position: "relative",
-// 	display: "flex",
-// 	flexDirection: "column",
-// 	justifyContent: "space-between",
-// });
-
-// export const HeaderGraffity = styled(Box)({
-// 	position: "absolute",
-// 	top: "-60px",
-// 	left: "-25px",
-// 	cursor: "pointer",
-
-// 	"&:active": {
-// 		transform: "scale(0.98)",
-// 	},
-// });
-
-// export const HeaderStrongMan = styled(Box)({
-// 	height: "230px",
-// 	position: "absolute",
-// 	left: "50%",
-// 	transform: "translateX(-50%)",
-
-// 	"&:active": {
-// 		transform: "translateX(-50%) scale(0.98)",
-// 	},
-// });
 
 // =================== стили Cart =========================
 
@@ -400,6 +361,15 @@ export const TitleContainer = styled(Box)({
 	height: "fit-content",
 	transition: "all 1s ease-in-out",
 	textAlign: "center",
+});
+
+export const SuccessModalTitleContainer = styled(Box)({
+	...FlexCenter,
+	width: "100%",
+	height: "fit-content",
+	transition: "all 1s ease-in-out",
+	textAlign: "center",
+	marginBottom: "25px",
 });
 
 export const PriceTextContainer = styled(Box)({
